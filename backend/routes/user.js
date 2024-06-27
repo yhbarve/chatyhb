@@ -7,13 +7,6 @@ const { ObjectId } = require("mongodb");
 const cors = require("cors");
 
 const router = Router();
-router.use(cors({
-    origin: ["https://chatyhb.vercel.app"],
-    method: ["POST", "GET", "DELETE"],
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
-    }
-));
 
 router.post('/signup', async (req, res) => {
     const email = req.body.email;
