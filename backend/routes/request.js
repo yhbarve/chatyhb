@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const cors = require("cors");
 
 const router = Router();
 
@@ -20,7 +21,7 @@ async function run(prompt) {
     return text;
 }
 
-router.post('/', authMiddleware, async (req, res) => {
+router.post('/', cors(), authMiddleware, async (req, res) => {
     const prompt = req.body.prompt;
     const userId = req.body.userId;
     const answer = await run(prompt);
@@ -35,7 +36,7 @@ router.post('/', authMiddleware, async (req, res) => {
     });
 });
 
-router.get('/bloglist/:userId', authMiddleware, async (req, res) => {
+router.get('/bloglist/:userId', cors(), authMiddleware, async (req, res) => {
     const userId = req.params.userId;
     const response = await Chat.find({
         userId
@@ -46,7 +47,7 @@ router.get('/bloglist/:userId', authMiddleware, async (req, res) => {
     });
 });
 
-router.delete('/bloglist/:userId', authMiddleware, async (req, res) => {
+router.delete('/bloglist/:userId', cors(), authMiddleware, async (req, res) => {
     const userId = req.params.userId;
 
     try {

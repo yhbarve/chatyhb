@@ -4,10 +4,11 @@ const jwt = require("jsonwebtoken");
 const authMiddleware = require("../middleware/authMiddleware");
 const JWT_SECRET = "ForzaFerrari#2024";
 const { ObjectId } = require("mongodb");
+const cors = require("cors");
 
 const router = Router();
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', cors(), async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     const username = req.body.username;
@@ -44,7 +45,7 @@ router.post('/signup', async (req, res) => {
     };
 });
 
-router.post('/signin', async (req, res) => {
+router.post('/signin', cors(), async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
@@ -78,7 +79,7 @@ router.post('/signin', async (req, res) => {
     };
 });
 
-router.get('/:id', authMiddleware, async (req, res) => {
+router.get('/:id', cors(), authMiddleware, async (req, res) => {
     const id = req.params.id;
     const response = await User.findById(id);
     res.json({
