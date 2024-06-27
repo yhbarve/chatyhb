@@ -15,7 +15,7 @@ router.use(cors({
     }
 ));
 
-router.post('/signup', cors(), async (req, res) => {
+router.post('/signup', async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     const username = req.body.username;
@@ -52,7 +52,7 @@ router.post('/signup', cors(), async (req, res) => {
     };
 });
 
-router.post('/signin', cors(), async (req, res) => {
+router.post('/signin', async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
@@ -86,7 +86,7 @@ router.post('/signin', cors(), async (req, res) => {
     };
 });
 
-router.get('/:id', cors(), authMiddleware, async (req, res) => {
+router.get('/:id', authMiddleware, async (req, res) => {
     const id = req.params.id;
     const response = await User.findById(id);
     res.json({
