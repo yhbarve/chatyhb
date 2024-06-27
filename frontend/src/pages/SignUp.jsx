@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Navbar from "../components/Navbar"
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp(){
     const [name, setName] = useState("");
@@ -31,7 +31,7 @@ export default function SignUp(){
                 </div>
                 <div className="flex flex-col gap-5 w-2/3 xl:w-1/4 items-center">
                     <button className="bg-teal-500 text-white text-xl font-semibold hover:bg-teal-600 p-2 w-full rounded transition ease-in-out" onClick={handleSignUp}>Sign Up</button>
-                    <div>Already have an account? <a href="/login" className="underline">Login</a> here</div>
+                    <div>Already have an account? <Link to="/login" className="underline">Login</Link> here</div>
                 </div>
             </div>
         </div>

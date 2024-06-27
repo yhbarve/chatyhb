@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ChatNavbar({name, userId}){
     const navigate = useNavigate();
@@ -34,8 +34,8 @@ export default function ChatNavbar({name, userId}){
                 <a className="bg-white p-2 lg:px-5 text-red-500 font-medium rounded hover:bg-red-500 hover:text-white transition ease-in cursor-pointer" onClick={handleLogout}>Log out</a>
             </div>}
             {name == "" && <div className="flex justify-center gap-12">
-                <a href="/login" className="bg-white p-2 px-5 text-red-500 font-medium rounded hover:bg-red-500 hover:text-white transition ease-in cursor-pointer">Login</a>
-                <a href="/signup" className="bg-white p-2 px-5 text-red-500 font-medium rounded hover:bg-red-500 hover:text-white transition ease-in cursor-pointer">Sign Up</a>
+                <Link to="/login" className="bg-white p-2 px-5 text-red-500 font-medium rounded hover:bg-red-500 hover:text-white transition ease-in cursor-pointer">Login</Link>
+                <Link to="/signup" className="bg-white p-2 px-5 text-red-500 font-medium rounded hover:bg-red-500 hover:text-white transition ease-in cursor-pointer">Sign Up</Link>
             </div>}
         </div>
     )
