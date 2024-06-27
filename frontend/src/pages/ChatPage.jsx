@@ -21,7 +21,7 @@ export default function ChatPage(){
     const { id }  = useParams();
 
     useEffect(() => {
-        axios.get('http://localhost:3000/request/bloglist/'+id, {
+        axios.get('https://chatyhb-api.vercel.app/request/bloglist/'+id, {
             headers: {
                 Authorization: localStorage.getItem("token")
             }
@@ -33,7 +33,7 @@ export default function ChatPage(){
     }, [promptList]);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/user/'+id, {
+        axios.get('https://chatyhb-api.vercel.app/user/'+id, {
             headers: {
                 Authorization: localStorage.getItem("token")
             }
