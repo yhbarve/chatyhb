@@ -12,6 +12,13 @@ const API_KEY="AIzaSyD4K3T0_ueHCKUixzmtwDmV5QbviSN-uAQ";
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+router.use(cors({
+    origin: ["https://chatyhb.vercel.app"],
+    method: ["POST", "GET", "DELETE", "OPTIONS"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
+    }
+));
 
 async function run(prompt) {
     const result = await model.generateContent(prompt);
