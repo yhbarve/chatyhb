@@ -16,7 +16,7 @@ export default function SignUp(){
             password
         });
         localStorage.setItem("token", 'Bearer ' + response.data.token);
-        navigate('/chat/' + response.data.id);
+        navigate('https://chatyhb.vercel.app/chat/' + response.data.id);
     }
 
     return (
@@ -31,7 +31,7 @@ export default function SignUp(){
                 </div>
                 <div className="flex flex-col gap-5 w-2/3 xl:w-1/4 items-center">
                     <button className="bg-teal-500 text-white text-xl font-semibold hover:bg-teal-600 p-2 w-full rounded transition ease-in-out" onClick={handleSignUp}>Sign Up</button>
-                    <div>Already have an account? <a href="/login" className="underline">Login</a> here</div>
+                    <div>Already have an account? <a href="https://chatyhb.vercel.app/login" className="underline">Login</a> here</div>
                 </div>
             </div>
         </div>
