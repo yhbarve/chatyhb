@@ -10,7 +10,7 @@ export default function SignUp(){
     const navigate = useNavigate();
 
     async function handleSignUp(){
-        const response = await axios.post('http://localhost:3000/user/signup', {
+        const response = await axios.post('https://chatyhb-api.vercel.app/user/signup', {
             username: name,
             email,
             password

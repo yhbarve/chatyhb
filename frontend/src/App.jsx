@@ -14,7 +14,7 @@ import Login from './pages/Login';
 
 
 function App() {
-
+  axios.defaults.withCredentials = true;
   return (
     <div className=''>
       <BrowserRouter >

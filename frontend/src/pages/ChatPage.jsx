@@ -49,7 +49,7 @@ export default function ChatPage(){
         setLoading(true);
 
         try {
-        const response = await axios.post('http://localhost:3000/request', {
+        const response = await axios.post('https://chatyhb-api.vercel.app/request', {
             userId: id,
             prompt: currentPrompt,
         }, {

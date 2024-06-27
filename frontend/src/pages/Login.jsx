@@ -14,7 +14,7 @@ export default function Login(){
 
     async function handleLogin(){
         console.log("EMAIL: " + email);
-        const response = await axios.post('http://localhost:3000/user/signin', {
+        const response = await axios.post('https://chatyhb-api.vercel.app/user/signin', {
             email: email,
             password: password
         });

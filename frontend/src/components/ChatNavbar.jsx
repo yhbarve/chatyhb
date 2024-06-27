@@ -16,7 +16,7 @@ export default function ChatNavbar({name, userId}){
     }
 
     async function handleDelete(){
-        const response = await axios.delete('http://localhost:3000/request/bloglist/'+userId, {
+        const response = await axios.delete('https://chatyhb-api.vercel.app/request/bloglist/'+userId, {
             headers: {
                 Authorization: localStorage.getItem("token"),
             }
