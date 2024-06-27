@@ -19,7 +19,7 @@ export default function Login(){
             password: password
         });
         localStorage.setItem("token", 'Bearer ' + response.data.token);
-        navigate('https://chatyhb.vercel.app/user/chat/' + response.data.id);
+        navigate('/chat/' + response.data.id);
     }
 
     return (
@@ -33,7 +33,7 @@ export default function Login(){
                 </div>
                 <div className="flex flex-col gap-5 w-2/3 xl:w-1/4 items-center">
                     <button onClick={handleLogin} className="bg-teal-500 text-white text-xl font-semibold hover:bg-teal-600 p-2 w-full rounded transition ease-in-out">Login</button>
-                    <div classname="text-center">Don't have an account? <a href="https://chatyhb.vercel.app/user/signup" className="underline">Sign up</a> here</div>
+                    <div classname="text-center">Don't have an account? <a href="/signup" className="underline">Sign up</a> here</div>
                 </div>
             </div>
         </div>
