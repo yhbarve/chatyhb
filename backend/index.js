@@ -14,7 +14,7 @@ app.use(express.json()); // Built-in middleware to parse JSON
 app.use(express.urlencoded({ extended: true })); // Built-in middleware to parse URL-encoded data
 app.use(cors({
     origin: ["https://chatyhb.vercel.app"],
-    method: ["POST", "GET", "DELETE", "OPTIONS"],
+    method: ["POST", "GET", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
     }

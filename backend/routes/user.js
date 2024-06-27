@@ -9,7 +9,7 @@ const cors = require("cors");
 const router = Router();
 router.use(cors({
     origin: ["https://chatyhb.vercel.app"],
-    method: ["POST", "GET", "DELETE", "OPTIONS"],
+    method: ["POST", "GET", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
     }

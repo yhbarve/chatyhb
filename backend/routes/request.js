@@ -14,7 +14,7 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 router.use(cors({
     origin: ["https://chatyhb.vercel.app"],
-    method: ["POST", "GET", "DELETE", "OPTIONS"],
+    method: ["POST", "GET", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
     }
