@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const cors = require("cors");
+require('dotenv').config();
 
 const router = Router();
 
@@ -8,7 +9,7 @@ const { markdownToTxt } = require('markdown-to-txt');
 const authMiddleware = require("../middleware/authMiddleware");
 const { Chat } = require("../db");
 
-const API_KEY="AIzaSyD4K3T0_ueHCKUixzmtwDmV5QbviSN-uAQ";
+const API_KEY=process.env.API_KEY;
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
