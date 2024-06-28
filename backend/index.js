@@ -8,13 +8,12 @@ const requestRouter = require('./routes/request');
 const userRouter = require('./routes/user')
 
 const API_KEY="AIzaSyD4K3T0_ueHCKUixzmtwDmV5QbviSN-uAQ";
-const URL="https://chatyhb.vercel.app"
 
 const app = express();
 app.use(express.json()); // Built-in middleware to parse JSON
 app.use(express.urlencoded({ extended: true })); // Built-in middleware to parse URL-encoded data
 app.use(cors({
-    origin: [ "https://chatyhb.vercel.app"],
+    origin: ["https://chatyhb.vercel.app"],
     method: ["POST", "GET", "DELETE"],
     credentials: true,
     }
