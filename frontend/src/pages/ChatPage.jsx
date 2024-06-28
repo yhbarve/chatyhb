@@ -73,6 +73,7 @@ export default function ChatPage(){
     } catch (error) {
         console.error('Error submitting prompt:', error);
         alert("Ran into an error there!");
+        window.location.reload();
     }
     }
 
