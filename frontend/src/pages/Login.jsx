@@ -8,7 +8,6 @@ export default function Login(){
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const URL="https://chatyhb-api.vercel.app";
-    const LOCAL_URL="http://localhost:3000"
 
     useEffect(() => {
 

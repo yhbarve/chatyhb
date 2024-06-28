@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 const authMiddleware = require("../middleware/authMiddleware");
 const JWT_SECRET = "ForzaFerrari#2024";
 const { ObjectId } = require("mongodb");
-const cors = require("cors");
 
 const router = Router();
 

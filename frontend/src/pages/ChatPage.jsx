@@ -20,7 +20,6 @@ export default function ChatPage(){
     const inputRef = useRef(null);
     const { id }  = useParams();
     const URL="https://chatyhb-api.vercel.app";
-    const LOCAL_URL="http://localhost:3000"
 
     useEffect(() => {
         axios.get(URL+'/request/bloglist/'+id, {
