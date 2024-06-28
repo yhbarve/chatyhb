@@ -16,6 +16,7 @@ app.use(cors({
     origin: ["https://chatyhb.vercel.app"],
     method: ["POST", "GET", "DELETE", "OPTIONS"],
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
     }
 ));
 
