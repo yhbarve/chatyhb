@@ -4,7 +4,7 @@ import Response from '../components/Response';
 import List from '../components/List';
 import Navbar from '../components/Navbar';
 import axios from "axios"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import ChatNavbar from '../components/ChatNavbar';
 import Chats from '../components/Chats';
 import Placeholder from '../components/Placeholder';
@@ -20,6 +20,7 @@ export default function ChatPage(){
     const inputRef = useRef(null);
     const { id }  = useParams();
     const URL="https://chatyhb-api.vercel.app";
+    const navigate=useNavigate();
 
     useEffect(() => {
         axios.get(URL+'/request/bloglist/'+id, {
@@ -71,6 +72,9 @@ export default function ChatPage(){
         setPrompt('');
     } catch (error) {
         console.error('Error submitting prompt:', error);
+        alert("Ran into an error there!");
+        navigate('/chat'+id);
+
     }
     }
 
