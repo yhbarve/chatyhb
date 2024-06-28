@@ -19,8 +19,6 @@ app.use(cors({
     }
 ));
 
-app.options('*', cors());
-
 app.use("/request", requestRouter);
 app.use("/user", userRouter);
 
