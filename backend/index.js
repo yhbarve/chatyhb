@@ -14,10 +14,12 @@ app.use(express.json()); // Built-in middleware to parse JSON
 app.use(express.urlencoded({ extended: true })); // Built-in middleware to parse URL-encoded data
 app.use(cors({
     origin: ["https://chatyhb.vercel.app"],
-    method: ["POST", "GET", "DELETE"],
+    method: ["POST", "GET", "DELETE", "OPTIONS"],
     credentials: true,
     }
 ));
+
+app.options('*', cors());
 
 app.use("/request", requestRouter);
 app.use("/user", userRouter);
