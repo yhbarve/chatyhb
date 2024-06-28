@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json()); // Built-in middleware to parse JSON
 app.use(express.urlencoded({ extended: true })); // Built-in middleware to parse URL-encoded data
 app.use(cors({
-    origin: [ "http://localhost:5173"],
+    origin: [ "https://chatyhb.vercel.app"],
     method: ["POST", "GET", "DELETE"],
     credentials: true,
     }
