@@ -7,6 +7,8 @@ export default function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const URL="https://chatyhb-api.vercel.app";
+    const LOCAL_URL="http://localhost:3000"
 
     useEffect(() => {
 
@@ -14,7 +16,7 @@ export default function Login(){
 
     async function handleLogin(){
         console.log("EMAIL: " + email);
-        const response = await axios.post('https://chatyhb-api.vercel.app/user/signin', {
+        const response = await axios.post(URL+'/user/signin', {
             email: email,
             password: password
         });

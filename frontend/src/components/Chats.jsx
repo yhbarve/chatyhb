@@ -3,7 +3,7 @@ import Response from "./Response";
 
 export default function Chats({chatList, user}){
     return(
-        <div className='w-full flex flex-col-reverse px-6 xl:px-48 overflow-scroll mt-32 md:mt-20 mb-36 z-1'>
+        <div className='w-full flex flex-col-reverse px-6 xl:px-48 overflow-scroll mt-32 md:mt-20 pb-24 z-1'>
             {chatList.length > 0 && chatList.map((element) => {
                 console.log("ELEMENT!");
                 console.log(element);

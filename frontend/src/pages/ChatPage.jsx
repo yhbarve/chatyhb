@@ -19,9 +19,11 @@ export default function ChatPage(){
     const [chatList, setChatList] = useState("");
     const inputRef = useRef(null);
     const { id }  = useParams();
+    const URL="https://chatyhb-api.vercel.app";
+    const LOCAL_URL="http://localhost:3000"
 
     useEffect(() => {
-        axios.get('https://chatyhb-api.vercel.app/request/bloglist/'+id, {
+        axios.get(URL+'/request/bloglist/'+id, {
             headers: {
                 Authorization: localStorage.getItem("token")
             }
@@ -33,7 +35,7 @@ export default function ChatPage(){
     }, [promptList]);
 
     useEffect(() => {
-        axios.get('https://chatyhb-api.vercel.app/user/'+id, {
+        axios.get(URL+'/user/'+id, {
             headers: {
                 Authorization: localStorage.getItem("token")
             }
@@ -93,7 +95,7 @@ export default function ChatPage(){
             </div>} 
             {!loading && (promptList.length > 0) && <Chats chatList={chatList} user={user} />}
             {!loading && (promptList.length < 1) && <Placeholder />}
-                <div className='flex gap-5 justify-center items-end w-full border-t-2 pt-12 px-6 xl:px-48 fixed bottom-12'>
+                <div className='flex gap-5 justify-center items-end w-full border-t border-teal-500 py-6 px-6 xl:px-48 fixed bottom-0 bg-white '>
                     <div ref={inputRef} className="input-box border border-black rounded p-2 w-[75%] z-10" contentEditable="true" placeholder="Message ChatYHB..." onInput={() => {
                         setPrompt(inputRef.current.textContent);
                     }}></div>
