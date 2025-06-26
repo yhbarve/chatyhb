@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { User } = require("../db");
 const jwt = require("jsonwebtoken");
 const authMiddleware = require("../middleware/authMiddleware");
+const { hashPassword, verifyPassword } = require("../utils/password");
 const JWT_SECRET = "ForzaFerrari#2024";
 const { ObjectId } = require("mongodb");
 
@@ -17,10 +18,12 @@ router.post('/signup', async (req, res) => {
     });
 
     if (!response){
+        const { salt, hash } = hashPassword(password);
         const newUser = await User.create({
             email,
-            password,
-            username
+            username,
+            passwordHash: hash,
+            salt
         });
         try{
             const token = jwt.sign({
@@ -48,22 +51,16 @@ router.post('/signin', async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    console.log("EMAIL IS " + email);
-    console.log("PASSWORD IS " + password);
+    const user = await User.findOne({ email });
 
-    const response = await User.findOne({
-        email,
-        password,
-    });
-
-    if (response){
+    if (user && verifyPassword(password, user.salt, user.passwordHash)){
         try {
             const token = jwt.sign({
                 email,
             }, JWT_SECRET);
             res.json({
                 msg: "Login successful",
-                id: response.id,
+                id: user.id,
                 token
             });
         } catch (e){

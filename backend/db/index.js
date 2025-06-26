@@ -5,7 +5,8 @@ mongoose.connect('mongodb+srv://admin:nI4PpT3NUtTjIdML@cluster0.s1bp51g.mongodb.
 const userSchema = new mongoose.Schema({
     email: String,
     username: String,
-    password: String,
+    passwordHash: String,
+    salt: String,
 });
 
 const chatSchema = new mongoose.Schema({
